@@ -1,0 +1,4 @@
+name = "car_rental"
+
+[database]
+url = "sqlite:///car_rental.db"
