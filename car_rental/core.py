@@ -11,7 +11,7 @@ def add_car_to_database(
     model: str,
     category: str,
     year: int,
-    cost: int,
+    price: int,
     rate: int
 ) -> bool:
     with get_session() as session:
@@ -21,9 +21,18 @@ def add_car_to_database(
     return True
 
 
-#def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
-#    with get_session() as session:
-#        sql = select(Car)
-#        if style:
-#            sql = sql.where(Car.style == style)
-#        return list(session.exec(sql))
+def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
+    with get_session() as session:
+        sql = select(Car)
+        if model:
+            sql = sql.where(Car.model == model)
+        return list(session.exec(sql))
+
+def remove_car_from_database(id) -> bool:
+    with get_session() as session:
+        sql = select(Car).where(Car.id == id)
+        result = session.exec(sql)
+        car = result.one()
+        session.delete(car)
+        session.commit()
+    return True

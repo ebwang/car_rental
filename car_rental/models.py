@@ -14,7 +14,7 @@ class Car(SQLModel, table=True):
     model: str
     category: str
     year: int
-    cost: int
+    price: int
     rate: int
     date: datetime = Field(default_factory=datetime.now)
 
@@ -24,7 +24,7 @@ class Car(SQLModel, table=True):
             raise RuntimeError(f"{field.name} must be between in 1 and 10")
         return value
 
-    @validator("cost")
+    @validator("price")
     def validate_cost(cls, value, field):
         if value < 0:
             raise RuntimeError(f"{field.name} must be positive")

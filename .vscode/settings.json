@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:python_gameset_flask}/car_rental.db",
+            "name": "car-rental",
+            "group": "sql-lite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
