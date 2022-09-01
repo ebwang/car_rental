@@ -8,7 +8,7 @@ from sqlmodel import select
 
 
 class Car(SQLModel, table=True):
-    #Optional is a optional number in the database because is a primary key
+    # Optional is a optional number in the database because is a primary key
     id: Optional[int] = Field(primary_key=True, default=None, index=True)
     name: str
     model: str
@@ -30,11 +30,10 @@ class Car(SQLModel, table=True):
             raise RuntimeError(f"{field.name} must be positive")
         return value
 
-
     @validator("year")
     def validate_year(cls, value, field):
         if value < 1890 or value > 2030:
-            raise RuntimeError(f"{field.name} must be between in 1890 and 2030")
+            raise RuntimeError(
+                f"{field.name} must be between in 1890 and 2030"
+            )
         return value
-
-

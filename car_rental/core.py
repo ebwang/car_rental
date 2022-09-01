@@ -2,17 +2,12 @@
 
 from typing import Optional, List
 from sqlmodel import select
-from db import get_session
-from models import Car
+from car_rental.db import get_session
+from car_rental.models import Car
 
 
 def add_car_to_database(
-    name: str,
-    model: str,
-    category: str,
-    year: int,
-    price: int,
-    rate: int
+    name: str, model: str, category: str, year: int, price: int, rate: int
 ) -> bool:
     with get_session() as session:
         car = Car(**locals())
@@ -27,6 +22,7 @@ def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
         if model:
             sql = sql.where(Car.model == model)
         return list(session.exec(sql))
+
 
 def remove_car_from_database(id) -> bool:
     with get_session() as session:

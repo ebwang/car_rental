@@ -8,5 +8,6 @@
             "group": "sql-lite"
         }
     ],
-    "sqltools.useNodeRuntime": true
+    "sqltools.useNodeRuntime": true,
+    "python.linting.enabled": true
 }
