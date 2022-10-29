@@ -43,10 +43,25 @@ def remove(name: str):
 
 
 @main.command("search")
-def search(name: str):
+def search(name: str, model: Optional[str] = None):
     """Search car from database"""
-    if search_car_from_database(name):
-        return True
+    cars = search_car_from_database(model)
+    table = Table(
+        title="Car Rent Database" if not model else f"Car Rental {model}"
+    )
+    headers = ["id", "name", "model", "category", "year", "price", "rate"]
+    for header in headers:
+        table.add_column(header, style="magenta")
+    for car in cars:
+        car.date = car.date.strftime("%Y-%m-%d")
+        #Usa-se uma list compreension, na primeira parte converte para string pois na tabela possui tipos diferentes
+        #O get attr simplesmente carrega o atributo ou valor atribuido ao valor da coluna ex car.name=Opala
+        values = [str(getattr(car, header)) for header in headers]
+        table.add_row(*values)
+        #O comando de cima vem para subistutir essa estrturua
+        # table.add_row(car.name, car.model)
+    console.print(table)    
+
 
 
 

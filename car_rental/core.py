@@ -26,9 +26,7 @@ def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
 def search_car_from_database(name: str) -> bool:
     with get_session() as session:
         sql = select(Car).where(Car.name == name)
-        results = session.exec(sql)
-        results.first()
-    return True
+    return list(session.exec(sql))
 
 def remove_car_from_database(name: str) -> bool:
     with get_session() as session:
