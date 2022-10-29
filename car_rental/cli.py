@@ -1,10 +1,12 @@
 # Arquivo de frontend cli mas que chama o core para ter inteligencia
 
+from operator import truediv
 import typer
 from car_rental.core import (
     add_car_to_database,
     get_cars_from_database,
     remove_car_from_database,
+    search_car_from_database
 )
 from typing import Optional
 from rich.console import Console
@@ -34,14 +36,18 @@ def add(
 
 
 @main.command("remove")
-def remove():
+def remove(name: str):
     """Remove car from database"""
-    list_cars()
-    id = input("Digite o id a ser deletado: ")
-    if remove_car_from_database(id):
+    if remove_car_from_database(name):
         print(":car: Car removed!!!")
-    else:
-        print(":no_entry: - Cannot remove car.")
+
+
+@main.command("search")
+def search(name: str):
+    """Search car from database"""
+    if search_car_from_database(name):
+        return True
+
 
 
 @main.command("list")

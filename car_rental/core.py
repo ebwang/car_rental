@@ -23,12 +23,17 @@ def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
             sql = sql.where(Car.model == model)
         return list(session.exec(sql))
 
-
-def remove_car_from_database(id) -> bool:
+def search_car_from_database(name: str) -> bool:
     with get_session() as session:
-        sql = select(Car).where(Car.id == id)
-        result = session.exec(sql)
-        car = result.one()
-        session.delete(car)
-        session.commit()
+        sql = select(Car).where(Car.name == name)
+        results = session.exec(sql)
+        results.first()
     return True
+
+def remove_car_from_database(name: str) -> bool:
+    with get_session() as session:
+        sql = select(Car).where(Car.name == name)
+        results = session.exec(sql)
+        results.first()
+    return True
+    
