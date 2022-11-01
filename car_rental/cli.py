@@ -37,9 +37,12 @@ def add(
 
 @main.command("remove")
 def remove(name: str):
+    name: str
     """Remove car from database"""
     if remove_car_from_database(name):
         print(":car: Car removed!!!")
+    else:
+        print("Car not found")
 
 
 @main.command("search")

@@ -32,6 +32,12 @@ def remove_car_from_database(name: str) -> bool:
     with get_session() as session:
         sql = select(Car).where(Car.name == name)
         results = session.exec(sql)
-        results.first()
-    return True
+        if results:
+            car_result = results.first()
+            session.delete(car_result)
+            session.commit()
+            return True
+        else:
+            return False
+    
     
