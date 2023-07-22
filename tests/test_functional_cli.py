@@ -12,6 +12,12 @@ def test_add_car():
 
 def test_remove_car():
     result = runner.invoke(
-        main, ["remove", "Gala", "GM", "--category=sedan", "--year=1900", "--price=100", "--rate=6"]
+        main, ["remove", "Gala"]
+    )
+    assert result.exit_code == 0
+
+def test_list_cars():
+    result = runner.invoke(
+        main, ["list"]
     )
     assert result.exit_code == 0
