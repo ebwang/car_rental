@@ -11,6 +11,10 @@ FastAPI
 
 Some comments are in portuguese
 
+Full Docs
+https://ebwang.github.io/car_rental/
+
 
 # To run Fast API
 uvicorn car_rental.api:api
+
