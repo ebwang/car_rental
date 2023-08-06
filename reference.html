@@ -234,8 +234,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#car_rental.api.api" class="md-nav__link">
-    api
+  <a href="#car_rental.api.list_cars" class="md-nav__link">
+    list_cars()
   </a>
   
 </li>
@@ -301,8 +301,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#car_rental.api.api" class="md-nav__link">
-    api
+  <a href="#car_rental.api.list_cars" class="md-nav__link">
+    list_cars()
   </a>
   
 </li>
@@ -351,15 +351,18 @@
 
 
 
-<div class="doc doc-object doc-attribute">
 
 
 
-<h3 id="car_rental.api.api" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">api</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Car Rent&#39;</span><span class="p">)</span></code>
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="car_rental.api.list_cars" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">list_cars</span><span class="p">()</span></code>
   
   <span class="doc doc-labels">
-      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
   </span>
 
 </h3>
@@ -391,11 +394,37 @@
         </tr>
     </tbody>
   </table>
+
+          <details class="quote">
+            <summary>Source code in <code>car_rental/api.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/cars&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">Car_Out</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">list_cars</span><span class="p">():</span>
+    <span class="c1">#Anotacao e usada para expor o endpoint</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Endpoint that returns information about all the cars.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        Not availible</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Awesome information about the Pokémon!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cars</span> <span class="o">=</span> <span class="n">get_cars_from_database</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">cars</span>
+</code></pre></div></td></tr></table></div>
+          </details>
   </div>
 
 </div>
-
-
 
 
 
