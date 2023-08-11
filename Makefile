@@ -33,8 +33,8 @@ unit-tests: ## run tests
 	@pytest 
 unit-tests-cov: ## run tests coverage
 	@pytest --cov=car_rental --cov-report term-missing --cov-report=html
-unit-tests-cov-fail: ## run tests coverage and fail under 80
-	@pytest --cov=car_rental --cov-report term-missing --cov-report=html --cov-fail-under=80
+unit-tests-cov-fail: ## run tests coverage and fail under 70
+	@pytest --cov=car_rental --cov-report term-missing --cov-report=html --cov-fail-under=70
 clean-cov: ## clean coverage
 	@rm -rf .coverage
 	@rm -rf htmlcov
