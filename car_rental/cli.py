@@ -1,6 +1,5 @@
 # Arquivo de frontend cli mas que chama o core para ter inteligencia
-
-from operator import truediv
+# from operator import truediv
 from typing import Optional
 
 import typer
@@ -58,8 +57,10 @@ def search(name: str, model: Optional[str] = None):
         table.add_column(header, style="magenta")
     for car in cars:
         car.date = car.date.strftime("%Y-%m-%d")
-        # Usa-se uma list compreension, na primeira parte converte para string pois na tabela possui tipos diferentes
-        # O get attr simplesmente carrega o atributo ou valor atribuido ao valor da coluna ex car.name=Opala
+        # Usa-se uma list compreension, na primeira parte converte para string pois na
+        # tabela possui tipos diferentes
+        # O get attr simplesmente carrega o atributo ou valor atribuido
+        # ao valor da coluna ex car.name=Opala
         values = [str(getattr(car, header)) for header in headers]
         table.add_row(*values)
         # O comando de cima vem para subistutir essa estrturua
@@ -78,8 +79,10 @@ def list_cars(model: Optional[str] = None):
         table.add_column(header, style="magenta")
     for car in cars:
         car.date = car.date.strftime("%Y-%m-%d")
-        # Usa-se uma list compreension, na primeira parte converte para string pois na tabela possui tipos diferentes
-        # O get attr simplesmente carrega o atributo ou valor atribuido ao valor da coluna ex car.name=Opala
+        # Usa-se uma list compreension, na primeira parte converte para string pois
+        # na tabela possui tipos diferentes
+        # O get attr simplesmente carrega o atributo ou valor
+        # atribuido ao valor da coluna ex car.name=Opala
         values = [str(getattr(car, header)) for header in headers]
         table.add_row(*values)
         # O comando de cima vem para subistutir essa estrturua

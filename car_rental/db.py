@@ -5,7 +5,8 @@ from car_rental.config import settings
 
 # Ao inves de passar a string passamos o a conf que esta no settings.toml
 
-# Para usar esse parametro tem que importar o config.py onde possui uma implementacao usando o Dynaconf
+# Para usar esse parametro tem que importar o config.py onde
+# possui uma implementacao usando o Dynaconf
 engine = create_engine(settings.development.url, echo=False)  # NEW
 
 # Ou pode passar a url direto
