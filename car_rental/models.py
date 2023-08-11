@@ -2,9 +2,9 @@
 
 from datetime import datetime
 from typing import Optional
-from pydantic import validator
-from sqlmodel import SQLModel, Field
 
+from pydantic import validator
+from sqlmodel import Field, SQLModel
 
 
 class Car(SQLModel, table=True):
@@ -33,7 +33,5 @@ class Car(SQLModel, table=True):
     @validator("year")
     def validate_year(cls, value, field):
         if value < 1890:
-            raise RuntimeError(
-                f"{field.name} must be between in 1890 and 2030"
-            )
+            raise RuntimeError(f"{field.name} must be between in 1890 and 2030")
         return value
