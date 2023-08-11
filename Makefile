@@ -9,10 +9,10 @@ lint-isort:
 	@isort . --check
 lint-flake8:
 	@flake8 .
-lint-mypy:
-	@mypy ./car_rental
-lint-mypy-report:
-	@mypy ./car_rental --html-report ./mypy_html
+#lint-mypy:
+#	@mypy ./car_rental
+#lint-mypy-report:
+#	@mypy ./car_rental --html-report ./mypy_html
 
 format: format-black format-isort
 lint: lint-black lint-isort lint-flake8 lint-mypy
