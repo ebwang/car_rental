@@ -23,10 +23,23 @@ lint-flake8: ## run flake8 (code linter)
 	@flake8 .
 
 lint-mypy: ## run mypy (static-type checker)
-	@mypy ./src
+	@mypy ./car_rental
 
 lint-mypy-report: # run mypy & create report
-	@mypy ./src --html-report ./mypy_html
+	@mypy ./car_rental --html-report ./mypy_html
+
+##@ Tests
+unit-tests: ## run tests
+	@pytest 
+unit-tests-cov: ## run tests coverage
+	@pytest --cov=car_rental --cov-report term-missing --cov-report=html
+unit-tests-cov-fail: ## run tests coverage and fail under 80
+	@pytest --cov=car_rental --cov-report term-missing --cov-report=html --cov-fail-under=80
+clean-cov: ## clean coverage
+	@rm -rf .coverage
+	@rm -rf htmlcov
+	@rm -rf pytest.xml
+	@rm -rf pytest-coverage.txt
 
 ##@ Documentation
 docs-build: ## build documentation locally
