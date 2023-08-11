@@ -1,7 +1,9 @@
 # Arquivo utilizado para a regra de negocio, logica e demais
 
-from typing import Optional, List
+from typing import List, Optional
+
 from sqlmodel import select
+
 from car_rental.db import get_session
 from car_rental.models import Car
 
@@ -23,10 +25,12 @@ def get_cars_from_database(model: Optional[str] = None) -> List[Car]:
             sql = sql.where(Car.model == model)
         return list(session.exec(sql))
 
+
 def search_car_from_database(name: str) -> bool:
     with get_session() as session:
         sql = select(Car).where(Car.name == name)
     return list(session.exec(sql))
+
 
 def remove_car_from_database(name: str) -> bool:
     with get_session() as session:
@@ -39,5 +43,3 @@ def remove_car_from_database(name: str) -> bool:
             return True
         else:
             return False
-    
-    

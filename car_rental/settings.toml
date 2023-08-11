@@ -1,4 +1,9 @@
 name = "car_rental"
 
-[database]
+[development]
 url = "sqlite:///car_rental.db"
+
+[production]
+url = "sqlite:///car_rental.db"
+user = "none"
+password = "test"

@@ -1,0 +1,20 @@
+site_name: Car Rental
+
+theme:
+  name: "material"
+
+nav:
+  - Index Page: index.md
+  - Tutorials: tutorials.md
+  - How-To-Guides: how-to-guides.md
+  - Reference: reference.md
+  - Explanation: explanation.md
+
+# to navigate with `/site` content correctly
+use_directory_urls: false
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [car_rental]
