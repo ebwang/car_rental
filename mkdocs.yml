@@ -9,6 +9,7 @@ nav:
   - How-To-Guides: how-to-guides.md
   - Reference: reference.md
   - Explanation: explanation.md
+  - Documentation: documentation.md
 
 # to navigate with `/site` content correctly
 use_directory_urls: false
@@ -18,3 +19,5 @@ plugins:
     handlers:
       python:
         paths: [car_rental]
+- render_swagger:
+    title: API Reference

@@ -51,10 +51,13 @@ pytest-cov = "^4.1.0"
 [tool.pytest.ini_options]
 addopts = "-p no:cacheprovider" # deactivating pytest caching.
 
+
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.2"
 mkdocs-material = "^9.1.21"
 mkdocstrings = {extras = ["python"], version = "^0.22.0"}
+mkdocs-render-swagger-plugin = "^0.0.4"
+
 
 
 [tool.poetry.group.lint.dependencies]

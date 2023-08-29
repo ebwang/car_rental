@@ -12,7 +12,8 @@ from car_rental.serializer import Car_In, Car_Out
 
 # Tem que instalar o unicorn que fala o ASGI
 # O guvicorn nao e assincrono
-api = FastAPI(title="Car Rent")
+api = FastAPI(title="Car Rent",description="A simple api to rent a car",openapi_version="3.1.0",version="0.1")
+
 
 
 # Anotacao e usada para expor o endpoint
